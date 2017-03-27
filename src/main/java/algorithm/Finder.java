@@ -1,5 +1,6 @@
 package algorithm;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -21,24 +22,11 @@ public class Finder {
 	}
 
     private BirthdayOffset findBirthdayOffset(AgeDifference ageDifference, List<BirthdayOffset> birthdayOffsets) {
-        BirthdayOffset answer = birthdayOffsets.get(0);
-        for (BirthdayOffset birthdayOffset : birthdayOffsets) {
-            switch (ageDifference) {
-                case SMALLEST:
-                    if (birthdayOffset.offset < answer.offset) {
-                        answer = birthdayOffset;
-                    }
-                    break;
-
-                case BIGGEST:
-                    if (birthdayOffset.offset > answer.offset) {
-                        answer = birthdayOffset;
-                    }
-                    break;
-            }
+        if (ageDifference == AgeDifference.BIGGEST) {
+            return Collections.max(birthdayOffsets, Comparator.comparing(BirthdayOffset::getOffset));
+        } else {
+            return Collections.min(birthdayOffsets, Comparator.comparing(BirthdayOffset::getOffset));
         }
-
-        return answer;
     }
 
     private List<BirthdayOffset> calculateBirthdayOffsets() {
