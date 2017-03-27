@@ -5,11 +5,15 @@ import java.util.List;
 public class Finder {
 	private final List<Person> people;
 
-	public Finder(List<Person> p) {
-		people = p;
+	public Finder(List<Person> people) {
+		this.people = people;
 	}
 
 	public BirthdayOffset Find(AgeDifference ageDifference) {
+	    if (people.size() <= 1) {
+            return new BirthdayOffset();
+        }
+
 		List<BirthdayOffset> birthdayOffsets = new ArrayList<BirthdayOffset>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
@@ -25,10 +29,6 @@ public class Finder {
 				r.offset = r.person2.birthDate.getTime() - r.person1.birthDate.getTime();
 				birthdayOffsets.add(r);
 			}
-		}
-
-		if (birthdayOffsets.size() < 1) {
-			return new BirthdayOffset();
 		}
 
 		BirthdayOffset answer = birthdayOffsets.get(0);
