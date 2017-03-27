@@ -38,9 +38,9 @@ public class FinderTests {
 		Finder finder = new Finder(list);
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.SMALLEST);
-		assertEquals(null, birthdayOffset.person1);
+		assertEquals(null, birthdayOffset.youngerPerson);
 
-		assertEquals(null, birthdayOffset.person2);
+		assertEquals(null, birthdayOffset.olderPerson);
 	}
 
 	@Test
@@ -52,8 +52,8 @@ public class FinderTests {
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.SMALLEST);
 
-		assertEquals(null, birthdayOffset.person1);
-		assertEquals(null, birthdayOffset.person2);
+		assertEquals(null, birthdayOffset.youngerPerson);
+		assertEquals(null, birthdayOffset.olderPerson);
 	}
 
 	@Test
@@ -65,8 +65,8 @@ public class FinderTests {
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.SMALLEST);
 
-		assertEquals(sue, birthdayOffset.person1);
-		assertEquals(greg, birthdayOffset.person2);
+		assertEquals(sue, birthdayOffset.youngerPerson);
+		assertEquals(greg, birthdayOffset.olderPerson);
 	}
 
 	@Test
@@ -79,8 +79,8 @@ public class FinderTests {
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.BIGGEST);
 
-		assertEquals(greg, birthdayOffset.person1);
-		assertEquals(mike, birthdayOffset.person2);
+		assertEquals(greg, birthdayOffset.youngerPerson);
+		assertEquals(mike, birthdayOffset.olderPerson);
 	}
 
 	@Test
@@ -94,8 +94,8 @@ public class FinderTests {
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.BIGGEST);
 
-		assertEquals(sue, birthdayOffset.person1);
-		assertEquals(sarah, birthdayOffset.person2);
+		assertEquals(sue, birthdayOffset.youngerPerson);
+		assertEquals(sarah, birthdayOffset.olderPerson);
 	}
 
 	@Test
@@ -110,8 +110,8 @@ public class FinderTests {
 
 		BirthdayOffset birthdayOffset = finder.Find(AgeDifference.SMALLEST);
 
-		assertEquals(sue, birthdayOffset.person1);
-		assertEquals(greg, birthdayOffset.person2);
+		assertEquals(sue, birthdayOffset.youngerPerson);
+		assertEquals(greg, birthdayOffset.olderPerson);
 	}
 
 }

@@ -1,6 +1,10 @@
 package algorithm;
 public class BirthdayOffset {
-	public Person person1;
-	public Person person2;
+	public Person youngerPerson;
+	public Person olderPerson;
 	public long offset;
+
+	public long getOffset(){
+		return offset;
+	}
 }
