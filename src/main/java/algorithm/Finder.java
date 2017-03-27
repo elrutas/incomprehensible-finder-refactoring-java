@@ -9,12 +9,12 @@ public class Finder {
 		people = p;
 	}
 
-	public Result Find(FT ft) {
-		List<Result> results = new ArrayList<Result>();
+	public BirthdayOffset Find(AgeDifference ageDifference) {
+		List<BirthdayOffset> birthdayOffsets = new ArrayList<BirthdayOffset>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Result r = new Result();
+				BirthdayOffset r = new BirthdayOffset();
 				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
 					r.person1 = people.get(i);
 					r.person2 = people.get(j);
@@ -22,27 +22,27 @@ public class Finder {
 					r.person1 = people.get(j);
 					r.person2 = people.get(i);
 				}
-				r.birthdayOffset = r.person2.birthDate.getTime() - r.person1.birthDate.getTime();
-				results.add(r);
+				r.offset = r.person2.birthDate.getTime() - r.person1.birthDate.getTime();
+				birthdayOffsets.add(r);
 			}
 		}
 
-		if (results.size() < 1) {
-			return new Result();
+		if (birthdayOffsets.size() < 1) {
+			return new BirthdayOffset();
 		}
 
-		Result answer = results.get(0);
-		for (Result result : results) {
-			switch (ft) {
-				case One :
-					if (result.birthdayOffset < answer.birthdayOffset) {
-						answer = result;
+		BirthdayOffset answer = birthdayOffsets.get(0);
+		for (BirthdayOffset birthdayOffset : birthdayOffsets) {
+			switch (ageDifference) {
+				case SMALLEST:
+					if (birthdayOffset.offset < answer.offset) {
+						answer = birthdayOffset;
 					}
 					break;
 
-				case Two :
-					if (result.birthdayOffset > answer.birthdayOffset) {
-						answer = result;
+				case BIGGEST:
+					if (birthdayOffset.offset > answer.offset) {
+						answer = birthdayOffset;
 					}
 					break;
 			}

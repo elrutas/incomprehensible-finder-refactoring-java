@@ -1,6 +1,6 @@
 package algorithm;
-public class Result {
+public class BirthdayOffset {
 	public Person person1;
 	public Person person2;
-	public long birthdayOffset;
+	public long offset;
 }
