@@ -32,24 +32,14 @@ public class Finder {
     private List<BirthdayOffset> calculateBirthdayOffsets() {
         List<BirthdayOffset> birthdayOffsets = new ArrayList<BirthdayOffset>();
 
-        for (int i = 0; i < people.size() - 1; i++) {
-            for (int j = i + 1; j < people.size(); j++) {
-                BirthdayOffset birthdayOffset = new BirthdayOffset();
-                if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-                    birthdayOffset.youngerPerson = people.get(i);
-                    birthdayOffset.olderPerson = people.get(j);
-                } else {
-                    birthdayOffset.youngerPerson = people.get(j);
-                    birthdayOffset.olderPerson = people.get(i);
+        for (Person firstPerson : people) {
+            for (Person secondPerson : people) {
+                if (firstPerson != secondPerson) {
+                    birthdayOffsets.add(new BirthdayOffset(firstPerson, secondPerson));
                 }
-                birthdayOffset.offset = birthdayOffset.olderPerson.birthDate.getTime() - birthdayOffset.youngerPerson.birthDate.getTime();
-                birthdayOffsets.add(birthdayOffset);
             }
         }
+
         return birthdayOffsets;
     }
-
-//	private BirthdayOffset closestBirthdays(List<BirthdayOffset> birthdayOffsets) {
-//		return birthdayOffsets.stream().min(Comparator.comparingLong(BirthdayOffset::getOffset));
-//	}
 }
