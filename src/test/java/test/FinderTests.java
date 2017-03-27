@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algorithm.F;
+import algorithm.Result;
 import algorithm.FT;
 import algorithm.Finder;
 import algorithm.Person;
@@ -37,10 +37,10 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.One);
-		assertEquals(null, result.P1);
+		Result result = finder.Find(FT.One);
+		assertEquals(null, result.person1);
 
-		assertEquals(null, result.P2);
+		assertEquals(null, result.person2);
 	}
 
 	@Test
@@ -50,10 +50,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.One);
+		Result result = finder.Find(FT.One);
 
-		assertEquals(null, result.P1);
-		assertEquals(null, result.P2);
+		assertEquals(null, result.person1);
+		assertEquals(null, result.person2);
 	}
 
 	@Test
@@ -63,10 +63,10 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.One);
+		Result result = finder.Find(FT.One);
 
-		assertEquals(sue, result.P1);
-		assertEquals(greg, result.P2);
+		assertEquals(sue, result.person1);
+		assertEquals(greg, result.person2);
 	}
 
 	@Test
@@ -77,10 +77,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.Two);
+		Result result = finder.Find(FT.Two);
 
-		assertEquals(greg, result.P1);
-		assertEquals(mike, result.P2);
+		assertEquals(greg, result.person1);
+		assertEquals(mike, result.person2);
 	}
 
 	@Test
@@ -92,10 +92,10 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.Two);
+		Result result = finder.Find(FT.Two);
 
-		assertEquals(sue, result.P1);
-		assertEquals(sarah, result.P2);
+		assertEquals(sue, result.person1);
+		assertEquals(sarah, result.person2);
 	}
 
 	@Test
@@ -108,10 +108,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		F result = finder.Find(FT.One);
+		Result result = finder.Find(FT.One);
 
-		assertEquals(sue, result.P1);
-		assertEquals(greg, result.P2);
+		assertEquals(sue, result.person1);
+		assertEquals(greg, result.person2);
 	}
 
 }
